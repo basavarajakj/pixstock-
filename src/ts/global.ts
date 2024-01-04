@@ -29,3 +29,10 @@ window.addEventListener("scroll", () => {
 const /** {NodeListOf<Element>} */ $rippleElements: NodeListOf<Element> | null = document.querySelectorAll("[data-ripple]");
 
 $rippleElements.forEach($rippleElement => ripple($rippleElement as HTMLElement));
+
+
+/**
+ * Filter functionality
+ */
+
+(window as any).filterObj = {};
