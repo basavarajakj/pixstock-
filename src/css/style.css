@@ -484,12 +484,12 @@ button:disabled {
   transform-origin: center;
   border-radius: var(--radius-circle);
   opacity: 0.12;
-  animation: ripple var(--motion-easing-standard) forwards;
+  animation: ripple 800ms var(--motion-easing-standard) forwards;
 }
 
 @keyframes ripple {
   0% { scale: 0; }
-  100% { scale: 1; }
+  100% { scale: 2.5; }
 }
 
 .logo {
@@ -610,7 +610,7 @@ button:disabled {
   justify-content: space-between;
   align-items: center;
   padding-inline: 4px;
-  height: var(--top-app-bar-height);
+  height: 72px;
   border-block-end: 1px solid var(--outline);
  }
 
