@@ -10,7 +10,7 @@
  */
 
 import { client } from "./api_configure";
-import { Photo } from "./types";
+import { Photo, Video } from "./types";
 
 /**
  * Add to favorite or remove from favorite
@@ -35,7 +35,7 @@ export const favorite = ($element: HTMLButtonElement, type: string, id: number) 
 
       window.localStorage.setItem("favorite", JSON.stringify(favoriteObj));
     } else {
-      client[type]?.detail(id, (data: Photo) => {
+      client[type]?.detail(id, (data: Photo | Video) => {
         $element.classList.toggle("active");
         $element.removeAttribute("disabled");
 

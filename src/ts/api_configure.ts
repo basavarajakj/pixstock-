@@ -104,7 +104,7 @@ export const /** {Object} */ client: any = {
      * @param callback - Callback function
      */
     detail(id:string, callback: Function) {
-      fetchData(`${root.default}videos/${id}`, callback);
+      fetchData(`${root.videos}videos/${id}`, callback);
     }
 
 

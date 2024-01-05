@@ -10,8 +10,9 @@
  */
 import { client } from "./api_configure";
 import { photoCard } from "./photo_card";
-import { RootObject } from "./types";
+import { RootObject, RootVideoObject, Video } from "./types";
 import { gridInit, updatedGrid } from "./utils/masonry_grid";
+import { videoCard } from "./video_card";
 
 /**
  * Render curated photos in home page
@@ -37,3 +38,33 @@ client.photos.curated( { page: 1, per_page: 20 }, (data: RootObject) => {
     })
   }
 });
+
+
+/**
+ * Render popular videos in home page
+ */
+
+const $videoGrid: HTMLElement | null = document.querySelector("[data-video-grid");
+
+if ($videoGrid) {
+  $videoGrid!.innerHTML = `<div class="skeleton"></div>`.repeat(18);
+
+  client.videos.popular({per_page: 20}, (data: RootVideoObject) => {
+
+  $videoGrid!.innerHTML = "";
+  const videoGrid = gridInit($videoGrid);
+
+
+  data.videos.forEach((video: Video) => {
+
+    const $videoCard = videoCard(video);
+
+    if($videoCard != undefined) {
+      updatedGrid($videoCard, videoGrid.columnHeight, videoGrid.$columns);
+    }
+
+  })
+
+
+})
+}

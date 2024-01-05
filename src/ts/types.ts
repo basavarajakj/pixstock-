@@ -31,3 +31,58 @@ export interface RootObject {
   tiny:      string;
  }
  
+ export interface RootVideoObject {
+  next_page:     string;
+  page:          number;
+  per_page:      number;
+  total_results: number;
+  url:           string;
+  videos:        Video[];
+ }
+ 
+ export interface Video {
+  avg_color:      null;
+  duration:       number;
+  full_res:       null;
+  height:         number;
+  id:             number;
+  image:          string;
+  tags:           any[];
+  url:            string;
+  user:           User;
+  video_files:    VideoFile[];
+  video_pictures: VideoPicture[];
+  width:          number;
+ }
+ 
+ export interface User {
+  id:   number;
+  name: string;
+  url:  string;
+ }
+ 
+ export interface VideoFile {
+  file_type: FileType;
+  fps:       number | null;
+  height:    number;
+  id:        number;
+  link:      string;
+  quality:   Quality;
+  width:     number;
+ }
+ 
+ export enum FileType {
+  VideoMp4 = "video/mp4",
+ }
+ 
+ export enum Quality {
+  HD = "hd",
+  SD = "sd",
+ }
+ 
+ export interface VideoPicture {
+  id:      number;
+  nr:      number;
+  picture: string;
+ }
+ 
