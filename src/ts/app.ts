@@ -11,6 +11,7 @@
 import { client } from "./api_configure";
 import { photoCard } from "./photo_card";
 import { RootObject } from "./types";
+import { gridInit, updatedGrid } from "./utils/masonry_grid";
 
 /**
  * Render curated photos in home page
@@ -22,13 +23,17 @@ $photoGrid!.innerHTML = `<div class="skeleton"></div>`.repeat(18);
 
 client.photos.curated( { page: 1, per_page: 20 }, (data: RootObject) => {
   
-  $photoGrid!.innerHTML = "";
+  if($photoGrid) {
+    $photoGrid.innerHTML = "";
 
-  data.photos.forEach(photo => {
-
-    const $photoCard = photoCard(photo);
-
-    $photoGrid?.append($photoCard);
-
-  })
+    const photoGrid = gridInit($photoGrid);
+    
+    data.photos.forEach(photo => {
+      
+      const $photoCard = photoCard(photo);
+      
+      updatedGrid($photoCard, photoGrid.columnHeight, photoGrid.$columns);
+      
+    })
+  }
 });
