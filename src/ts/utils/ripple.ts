@@ -26,9 +26,9 @@ export const ripple = function ($rippleElem: HTMLElement) {
         opacity: 0
       }, { fill: "forwards", duration: 200 });
 
-      // setTimeout(() => {
-      //   $ripple.remove();
-      // }, 1000);
+      setTimeout(() => {
+        $ripple.remove();
+      }, 1000);
     }
 
     this.addEventListener("pointerup", removeRipple);
