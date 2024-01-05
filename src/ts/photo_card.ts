@@ -5,6 +5,8 @@
 
 "use strict";
 
+import { favorite } from "./favorite";
+import { FavoriteObject } from "./global";
 /**
  * Import
 */
@@ -12,7 +14,9 @@ import { Photo } from "./types";
 import { ripple } from "./utils/ripple";
 
 /**
- * Crate photo card
+ * Cerate photo card
+ * @param photo Photo Object
+ * @returns Photo card
  */
 
 export const photoCard = (photo: Photo) => {
@@ -33,6 +37,8 @@ export const photoCard = (photo: Photo) => {
   $card.classList.add("card", "grid-item");
   $card.style.backgroundColor = backdropColor;
 
+  const favoriteObj: FavoriteObject = JSON.parse(window.localStorage.getItem("favorite") as string);
+
   $card!.innerHTML = `
     <figure class="card-banner" style="--width: ${width}; --height: ${height};">
       <img src="${large}" width="${width}" height="${height}" loading="lazy" class="img-cover" alt="${alt}">
@@ -40,7 +46,7 @@ export const photoCard = (photo: Photo) => {
 
     <div class="card-content">
 
-      <button class="icon-btn small" aria-label="Add to favorite" data-ripple data-toggle-btn>
+      <button class="icon-btn small ${favoriteObj.photos[id] ? "active" : ""}" aria-label="Add to favorite" data-ripple data-favorite-btn>
         <span class="material-symbols-outlined" aria-hidden="true">favorite</span>
 
         <div class="state-layer"></div>
@@ -68,6 +74,14 @@ export const photoCard = (photo: Photo) => {
   const $rippleElements: NodeListOf<Element> | null = [$card, $card?.querySelector("[data-ripple]")]
 
   $rippleElements?.forEach($rippleElement => ripple($rippleElement as HTMLElement));
+
+
+  const $favoriteBtn: HTMLButtonElement | null = $card?.querySelector("[data-favorite-btn]");
+  
+  if($favoriteBtn) {
+    favorite($favoriteBtn, "photos", id);
+  }
+
 
   return $card;
 

@@ -39,7 +39,7 @@ const root: Record<string, string> = {
 }
 
 
-export const /** {Object} */ client = {
+export const /** {Object} */ client: any = {
 
   photos: {
 

@@ -10,6 +10,7 @@
  */
 import { ripple } from "./utils/ripple";
 import { addEventOnElements } from "./utils/event";
+import { Photo } from "./types";
 
 
 /**
@@ -51,3 +52,24 @@ addEventOnElements($navToggler, "click", function () {
  */
 
 (window as any).filterObj = {};
+
+
+
+/**
+ * Initial favorite object in local storage
+ */
+export interface FavoriteObject {
+  photos: Record<number, Photo>;
+  videos: Record<number, Photo>; 
+}
+
+const favoriteString: string | null = window.localStorage.getItem("favorite");
+
+if (!favoriteString) {
+  const favoriteObj: FavoriteObject = {
+    photos: {},
+    videos: {} 
+  };
+
+  window.localStorage.setItem("favorite", JSON.stringify(favoriteObj));
+}
