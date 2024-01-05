@@ -86,3 +86,21 @@ export interface RootObject {
   picture: string;
  }
  
+
+ export interface RootCollectionObject {
+  collections:   Collection[];
+  next_page:     string;
+  page:          number;
+  per_page:      number;
+  total_results: number;
+ }
+ 
+ export interface Collection {
+  description:  null | string;
+  id:           string;
+  media_count:  number;
+  photos_count: number;
+  private:      boolean;
+  title:        string;
+  videos_count: number;
+ }

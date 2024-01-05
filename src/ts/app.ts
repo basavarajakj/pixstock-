@@ -9,8 +9,9 @@
  * Import
  */
 import { client } from "./api_configure";
+import { collectionCard } from "./collection_card";
 import { photoCard } from "./photo_card";
-import { RootObject, RootVideoObject, Video } from "./types";
+import { RootCollectionObject, RootObject, RootVideoObject, Video } from "./types";
 import { gridInit, updatedGrid } from "./utils/masonry_grid";
 import { videoCard } from "./video_card";
 
@@ -63,8 +64,26 @@ if ($videoGrid) {
       updatedGrid($videoCard, videoGrid.columnHeight, videoGrid.$columns);
     }
 
+  });
+
+});
+}
+
+
+/**
+ * Render collection in home page
+ */
+
+const $collectionGrid: HTMLDivElement | null = document.querySelector("[data-collection-grid]");
+
+client.collections.featured({ per_page: 18 }, (data: RootCollectionObject) => {
+
+  data.collections.forEach(collection => {
+
+    const $collectionCard = collectionCard(collection);
+
+    $collectionGrid?.appendChild($collectionCard)
+
   })
 
-
 })
-}
