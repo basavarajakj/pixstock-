@@ -13,7 +13,6 @@ import { ripple } from "./utils/ripple";
 import { addEventOnElements } from "./utils/event";
 import { segment } from "./segment_btn";
 import { updateUrl } from "./utils/updateUrl";
-import { urlEncode } from "./utils/urlEncode";
 import { urlDecode } from "./utils/urlDecode";
 
 /**
