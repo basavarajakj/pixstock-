@@ -16,12 +16,13 @@ import { urlEncode } from "./urlEncode";
  * @param searchType search type eg. 'videos' or 'photos'
  */
 export const updateUrl = (filterObj: object, searchType: string) => {
+  
   setTimeout(() => {
     const root = window.location.origin;
     
     if (filterObj && typeof filterObj === 'object') {
       const searchQuery = urlEncode(filterObj);
-      window.location.href = `${root}/pages/${searchType}/${searchType}.html?${searchQuery}`;
+      window.location.href = `${root}/src/pages/${searchType}/${searchType}.html?${searchQuery}`;
     } else {
       console.error('Invalid filterObj:', filterObj);
     }
