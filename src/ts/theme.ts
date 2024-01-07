@@ -10,6 +10,12 @@ const /** {Boolean} */ userPreferTheme = window.matchMedia("(prefers-color-schem
 
 let themeFromStorage = sessionStorage.getItem('theme') || (userPreferTheme? "light" : "dark");
 
+if (!sessionStorage.getItem('theme')) {
+  themeFromStorage = "dark";
+  sessionStorage.setItem("theme", themeFromStorage);
+}
+
+
 $HTML.dataset.theme = themeFromStorage;
 
 const changeTheme = function () {
