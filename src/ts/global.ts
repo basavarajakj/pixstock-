@@ -11,6 +11,7 @@
 import { ripple } from "./utils/ripple";
 import { addEventOnElements } from "./utils/event";
 import { Photo } from "./types";
+import { urlDecode } from "./utils/urlDecode";
 
 
 /**
@@ -54,6 +55,40 @@ addEventOnElements($navToggler, "click", function () {
 (window as any).filterObj = {};
 
 
+/**
+ * Show all filtered option after reload
+ */
+
+if (window.location.search.slice(1)) {
+
+  const search = urlDecode(window.location.search.slice(1));
+  
+  Object.entries(search).forEach(item => {
+    const filterKey = item[0];
+    const filterValue = item[1];
+    (window as any).filterObj[filterKey] = filterValue;
+
+    if (filterKey !== "query" ) {
+      const $filterItem = document.querySelector(`[data-filter="${filterKey}"`);
+      
+      if ($filterItem !== null) {
+        const filterChip = $filterItem.querySelector("[data-filter-chip]");
+        const filterValueElement = $filterItem.querySelector("[data-filter-value]");
+
+        if (filterChip !== null) {
+          filterChip.classList.add("selected");
+        }
+
+        if (filterValueElement !== null && filterValueElement instanceof HTMLElement) {
+          filterValueElement.innerText = filterValue as string;
+        }
+
+      }
+    }
+
+  })
+
+}
 
 /**
  * Initial favorite object in local storage

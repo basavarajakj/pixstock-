@@ -9,9 +9,11 @@
  * Import
 */
 import { client } from "../../ts/api_configure";
+import { filter } from "../../ts/filter";
 import { photoCard } from "../../ts/photo_card";
 import { Photo, RootObject } from "../../ts/types";
 import { gridInit, updatedGrid } from "../../ts/utils/masonry_grid";
+import { updateUrl } from "../../ts/utils/updateUrl";
 import { urlDecode } from "../../ts/utils/urlDecode";
 
 
@@ -22,6 +24,21 @@ import { urlDecode } from "../../ts/utils/urlDecode";
 const $filterBar: HTMLElement | null = document.querySelector("[data-filter-bar]");
 
 if($filterBar) $filterBar.style.display = window.location.search ? "flex" : "none";
+
+
+/**
+ * Init filter
+ */
+
+
+const $filterWrappers: NodeListOf<HTMLDivElement> = document.querySelectorAll("[data-filter]");
+
+$filterWrappers.forEach(($filterWrapper: HTMLDivElement) => {
+  filter($filterWrapper, (window as any).filterObj, (newObj: any) => {
+    (window as any).filterObj = newObj;
+    updateUrl(newObj, "photos");
+  });
+});
 
 
 /**
@@ -89,8 +106,6 @@ let isLoaded = true;
 
 
 window.addEventListener("scroll", function () {
-
-  console.log($loader?.getBoundingClientRect().top);
 
   if($loader && $loader?.getBoundingClientRect().top < (window.innerHeight * 2) && currentPage <= totalPage && isLoaded) {
 
