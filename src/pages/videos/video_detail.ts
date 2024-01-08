@@ -12,7 +12,7 @@ import { client } from "../../ts/api_configure";
 import { ripple } from "../../ts/utils/ripple";
 import { favorite } from "../../ts/favorite";
 import { menu } from "../../ts/menu";
-import { Photo, RootObject, Video } from "../../ts/types";
+import { Video } from "../../ts/types";
 
 
 
