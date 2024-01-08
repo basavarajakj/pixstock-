@@ -7,7 +7,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
-        src: resolve(__dirname, 'src/pages/photos/photos.html', 'src/pages/photos/photo_detail.html'),
+        photos: resolve(__dirname, 'src/pages/photos/photos.html'),
+        photosDetails: resolve(__dirname, 'src/pages/photos/photo_detail.html'),
       },
     },
   },
