@@ -21,7 +21,7 @@ import { Photo, Video } from "./types";
 
 
 
-export const favorite = ($element: HTMLButtonElement, type: string, id: number) => {
+export const favorite = ($element: HTMLButtonElement, type: string, id: number | string) => {
   $element.addEventListener("click", () => {
 
     $element.setAttribute("disabled", "");

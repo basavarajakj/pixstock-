@@ -113,6 +113,18 @@ window.addEventListener("scroll", function () {
     renderPhotos(currentPage);
     isLoaded = false;
   }
-  
 
 })
+
+
+/**
+ * Page Transition
+ */
+
+window.addEventListener("loadstart", function () {
+  document.body.style.opacity = "0";
+});
+
+window.addEventListener("DOMContentLoaded", function () {
+  document.body.style.opacity = "1";
+});

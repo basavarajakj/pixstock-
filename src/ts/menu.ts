@@ -18,7 +18,7 @@ import { addEventOnElements } from "./utils/event";
  * @param callback Callback function
  */
 
-export const menu = function ($menuWrapper: HTMLDivElement, callback: Function) {
+export const menu = function ($menuWrapper: HTMLDivElement, callback?: Function) {
 
   const $menu = $menuWrapper.querySelector("[data-menu]");
   const $menuToggler = $menuWrapper.querySelectorAll("[data-menu-toggler]");
