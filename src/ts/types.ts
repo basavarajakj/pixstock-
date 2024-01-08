@@ -1,3 +1,25 @@
+interface RequestOptions {
+  [key: string]: string | number;
+}
+
+export interface Client {
+  photos: {
+    search(parameters: RequestOptions, callback: Function): void;
+    curated(parameters: RequestOptions, callback: Function): void;
+    detail(id: string, callback: Function): void;
+  };
+  videos: {
+    search(parameters: RequestOptions, callback: Function): void;
+    popular(parameters: RequestOptions, callback: Function): void;
+    detail(id: string, callback: Function): void;
+  };
+  collections: {
+    featured(parameters: RequestOptions, callback: Function): void;
+    detail(id: string, parameters: RequestOptions, callback: Function): void;
+  };
+}
+
+
 export interface RootObject {
   next_page:     string;
   page:          number;

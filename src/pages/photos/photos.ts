@@ -115,16 +115,3 @@ window.addEventListener("scroll", function () {
   }
 
 })
-
-
-/**
- * Page Transition
- */
-
-window.addEventListener("loadstart", function () {
-  document.body.style.opacity = "0";
-});
-
-window.addEventListener("DOMContentLoaded", function () {
-  document.body.style.opacity = "1";
-});

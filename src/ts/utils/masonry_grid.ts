@@ -38,7 +38,7 @@ export const gridInit = function ($gridContainer: HTMLElement) {
  * @param $columns All columns
  */
 
-export const updatedGrid = function ($card: HTMLElement, columnHeight: number[], $columns: HTMLDivElement[]) {
+export const updatedGrid = function ($card: HTMLElement | HTMLDivElement, columnHeight: number[], $columns: HTMLDivElement[]) {
 
   const minColumnHeight = Math.min(...columnHeight);
   const minColumnIndex = columnHeight.indexOf(minColumnHeight);

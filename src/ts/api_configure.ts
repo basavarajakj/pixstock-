@@ -5,6 +5,7 @@
 
 "use strict";
 
+import { Client } from "./types";
 /**
  * Imports
  */
@@ -39,7 +40,8 @@ const root: Record<string, string> = {
 }
 
 
-export const /** {Object} */ client: any = {
+export const /** {Object} */ client: Client
+ = {
 
   photos: {
 
@@ -84,7 +86,7 @@ export const /** {Object} */ client: any = {
      * @param callback Callback function
      */
     search(parameters: object, callback: Function) {
-      requestUrl = `${root.video}search?${urlEncode(parameters)}`
+      requestUrl = `${root.videos}search?${urlEncode(parameters)}`
       fetchData(requestUrl, callback);
     },
 

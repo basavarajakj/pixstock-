@@ -184,7 +184,7 @@ href = https://github.com/codewithsadee
 GitHub
 
 href = https://twitter.com/codewithsadee
-Twitter
+Linkedin
 
 
 
