@@ -35,7 +35,8 @@ export const favorite = ($element: HTMLButtonElement, type: string, id: number |
 
       window.localStorage.setItem("favorite", JSON.stringify(favoriteObj));
     } else {
-      client[type]?.detail(id, (data: Photo | Video) => {
+      // @ts-ignore
+      client[type].detail(id, (data: Photo | Video) => {
         $element.classList.toggle("active");
         $element.removeAttribute("disabled");
 
