@@ -1729,9 +1729,9 @@ button:disabled {
      * PHOTO DETAIL PAGE
      */
 
-     .detail-wrapper { height: 788px; }
+     .detail-wrapper { height: 588px; }
     
-     .detail-banner { max-height: 760px; }
+     .detail-banner { max-height: 540px; }
 
      .detail .title-large { margin-block-start: 40px; }
 

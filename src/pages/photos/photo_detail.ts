@@ -90,7 +90,7 @@ client.photos.detail(photoId, (data: Photo) => {
     const [key, value] = item;
 
     $downloadMenu!.innerHTML += `
-      <a href="${value}" class="menu-item" data-ripple data-menu-item>
+      <a href="${value}" target="_blank" class="menu-item" data-ripple data-menu-item>
         <span class="label-large text">${key}</span>
 
         <div class="state-layer"></div>
