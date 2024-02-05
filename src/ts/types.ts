@@ -126,3 +126,62 @@ export interface RootObject {
   title:        string;
   videos_count: number;
  }
+
+ export interface CollectionMedia {
+  id:            string;
+  media:         Media[];
+  page:          number;
+  per_page:      number;
+  total_results: number;
+ }
+ 
+ export interface Media {
+  alt?:              string;
+  avg_color?:        string;
+  duration?:         number;
+  full_res?:         null;
+  height:            number;
+  id:                number;
+  image?:            string;
+  liked?:            boolean;
+  photographer?:     string;
+  photographer_id?:  number;
+  photographer_url?: string;
+  src?:              Src;
+  tags?:             any[];
+  type:              Type;
+  url:               string;
+  user?:             User;
+  video_files?:      VideoFile[];
+  video_pictures?:   VideoPicture[];
+  width:             number;
+ }
+ 
+ export interface Src {
+  landscape: string;
+  large:     string;
+  large2x:   string;
+  medium:    string;
+  original:  string;
+  portrait:  string;
+  small:     string;
+  tiny:      string;
+ }
+ 
+ export enum Type {
+  Photo = "Photo",
+  Video = "Video",
+ }
+ 
+ export interface User {
+  id:   number;
+  name: string;
+  url:  string;
+ }
+ 
+ export interface VideoPicture {
+  id:      number;
+  nr:      number;
+  picture: string;
+ }
+ 
