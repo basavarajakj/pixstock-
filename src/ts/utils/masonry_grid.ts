@@ -46,5 +46,4 @@ export const updatedGrid = function ($card: HTMLElement | HTMLDivElement, column
   $columns[minColumnIndex]?.appendChild($card);
   columnHeight[minColumnIndex] = $columns[minColumnIndex].offsetHeight;
 
-
 }
